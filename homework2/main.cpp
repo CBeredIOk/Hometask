@@ -50,7 +50,8 @@ int main(int argc, char** argv){
         double Vy = v[2];
         int k = 0, n = 0, r = 0;
 
-        string Way = " from Right ";
+        //string Way = " from Right ";
+        int Way = 0;
 
         vector<double> Collision_X;
         double y = function(n, h, X_b[0], Vx, Vy, X_b);
@@ -75,7 +76,8 @@ int main(int argc, char** argv){
         for (int i = 0; i < X_b.size(); i++) {
             y = function(n, h, X_b[0], Vx, Vy, X_b);
             if (y <= Y_b[i]) {
-                Way = " from Left ";
+                //Way = " from Left ";
+                Way = 1;
                 k = i;
                 n = 1;
 
@@ -85,11 +87,13 @@ int main(int argc, char** argv){
         }
 
         while (true) {
-            if (Way == " from Left ") {
+            //if (Way == " from Left ") {
+            if (Way == 1) {
                 for (int i = k - 1; i >= 0; i--) {
                     y = function(n, h, X_b[0], Vx, Vy, Collision_X);
                     if (y <= Y_b[i]) {
-                        Way = " from Right ";
+                        //Way = " from Right ";
+                        Way = 0;
                         k = i;
                         n++;
                         Collision_X.push_back(X_b[i]);
@@ -104,11 +108,13 @@ int main(int argc, char** argv){
                     break;
                 }
             }
-            if (Way == " from Right ") {
+            //if (Way == " from Right ") {
+            if (Way == 0) {
                 for (int i = k + 1; i < X_b.size(); i++) {
                     y = function(n, h, X_b[0], Vx, Vy, Collision_X);
                     if (y <= Y_b[i]) {
-                        Way = " from Left ";
+                        //Way = " from Left ";
+                        Way = 1;
                         k = i;
                         n++;
                         Collision_X.push_back(X_b[i]);
@@ -120,7 +126,8 @@ int main(int argc, char** argv){
             }
         }
 
-        if (Way == " from Left ") {
+        //if (Way == " from Left ") {
+        if (Way == 1) {
             if (r == k) {
                 cout << "<" << 0 << ">";
             } else {
@@ -128,7 +135,8 @@ int main(int argc, char** argv){
             }
         }
 
-        if (Way == " from Right ") {
+        //if (Way == " from Right ") {
+        if (Way == 0) {
             cout << "<" << k+1 << ">";
         }
         return 0;
