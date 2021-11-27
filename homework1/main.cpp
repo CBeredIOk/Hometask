@@ -26,6 +26,8 @@ int main() {
     double y;
     double h_left_1;
     double h_right_1;
+    double y_right_m_0;
+    double x_right_m_0;
 
     while (file >> x >> y) {
         if ((A >= 0 and B > 0) or (A > 0 and B <= 0)) {
@@ -94,15 +96,21 @@ int main() {
                     y_right_m = y;
                 }
                 if (h_right_1 == 0){
-                    x_right_m = x;
-                    y_right_m = y;
+                    x_right_m_0 = x;
+                    y_right_m_0 = y;
                 }
             }
         }
     }
     file.close();
-    cout << "\nLeftmost: " << x_left_m << " " << y_left_m;
-    cout << "\nRightmost: " << x_right_m << " " << y_right_m;
+    if (h_right_1 == 0){
+        cout << "\nLeftmost: " << x_left_m << " " << y_left_m;
+        cout << "\nRightmost: " << x_right_m_0 << " " << y_right_m_0;
+    }
+    else {
+        cout << "\nLeftmost: " << x_left_m << " " << y_left_m;
+        cout << "\nRightmost: " << x_right_m << " " << y_right_m;
+    }
 }
 
 //int main() {
