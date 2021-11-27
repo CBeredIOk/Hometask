@@ -60,8 +60,8 @@ int main() {
                     y_right_m = y;
                 }
                 if (h_right_1 == 0){
-                    x_right_m = x;
-                    y_right_m = y;
+                    x_right_m_0 = x;
+                    y_right_m_0 = y;
                 }
             }
         }
