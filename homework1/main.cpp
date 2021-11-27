@@ -10,6 +10,7 @@ int main() {
     string line;
     ifstream file("in.txt");
 
+    int i = 0;
     double x0;
     double y0;
     file >> x0 >> y0;
@@ -25,22 +26,30 @@ int main() {
     double x;
     double y;
     while (file >> x >> y) {
-        if ((A > 0 and B > 0) or (A > 0 and B < 0)) {
+        if ((A >= 0 and B > 0) or (A > 0 and B <= 0)) {
             if (B * x - A * y <= 0) {
                 x_left = x;
                 y_left = y;
+                cout << "\nx_l = " << x;
+                cout << "\ny_l = " << y;
             } else {
                 x_right = x;
                 y_right = y;
+                cout << "\nx_r = " << x;
+                cout << "\ny_r = " << y;
             }
         }
-        if ((A < 0 and B < 0) or (A < 0 and B > 0)) {
+        if ((A <= 0 and B < 0) or (A < 0 and B >= 0)) {
             if (B * x - A * y >= 0) {
                 x_left = x;
                 y_left = y;
+                cout << "\nx_l = " << x;
+                cout << "\ny_l = " << y;
             } else {
                 x_right = x;
                 y_right = y;
+                cout << "\nx_r = " << x;
+                cout << "\ny_r = " << y;
             }
         }
         double h_right_1;
@@ -57,6 +66,11 @@ int main() {
             h_left_0 = h_left_1;
             x_left_m = x;
             y_left_m = y;
+        }
+        if (h_left_1 == 0 and i == 0){
+            x_left_m = x;
+            y_left_m = y;
+            i++;
         }
     }
 
