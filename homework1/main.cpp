@@ -33,8 +33,8 @@ int main() {
                 x_left = x;
                 y_left = y;
 
-                cout << "\nx_l = " << x;
-                cout << "\ny_l = " << y;
+//                cout << "\nx_l = " << x;
+//                cout << "\ny_l = " << y;
 
                 h_left_1 = fabs((B * x_left - A * y_left) / sqrt(A * A + B * B));
                 h_left_1 = round(h_left_1 * 10000000000.0) / 10000000000.0;
@@ -47,8 +47,8 @@ int main() {
                 x_right = x;
                 y_right = y;
 
-                cout << "\nx_r = " << x;
-                cout << "\ny_r = " << y;
+//                cout << "\nx_r = " << x;
+//                cout << "\ny_r = " << y;
 
                 h_right_1 = fabs((B * x_right - A * y_right) / sqrt(A * A + B * B));
                 h_right_1 = round(h_right_1 * 10000000000.0) / 10000000000.0;
@@ -68,8 +68,8 @@ int main() {
                 x_left = x;
                 y_left = y;
 
-                cout << "\nx_l = " << x;
-                cout << "\ny_l = " << y;
+//                cout << "\nx_l = " << x;
+//                cout << "\ny_l = " << y;
 
                 h_left_1 = fabs((B * x_left - A * y_left) / sqrt(A * A + B * B));
                 h_left_1 = round(h_left_1 * 10000000000.0) / 10000000000.0;
@@ -83,8 +83,8 @@ int main() {
                 x_right = x;
                 y_right = y;
 
-                cout << "\nx_r = " << x;
-                cout << "\ny_r = " << y;
+//                cout << "\nx_r = " << x;
+//                cout << "\ny_r = " << y;
 
                 h_right_1 = fabs((B * x_right - A * y_right) / sqrt(A * A + B * B));
                 h_right_1 = round(h_right_1 * 10000000000.0) / 10000000000.0;
