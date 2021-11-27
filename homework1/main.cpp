@@ -30,26 +30,26 @@ int main() {
             if (B * x - A * y < 0) {
                 x_left = x;
                 y_left = y;
-                cout << "\nx_l = " << x;
-                cout << "\ny_l = " << y;
+                //cout << "\nx_l = " << x;
+                //cout << "\ny_l = " << y;
             } else {
                 x_right = x;
                 y_right = y;
-                cout << "\nx_r = " << x;
-                cout << "\ny_r = " << y;
+                //cout << "\nx_r = " << x;
+                //cout << "\ny_r = " << y;
             }
         }
         if ((A <= 0 and B < 0) or (A < 0 and B >= 0)) {
             if (B * x - A * y < 0) {
                 x_left = x;
                 y_left = y;
-                cout << "\nx_l = " << x;
-                cout << "\ny_l = " << y;
+                //cout << "\nx_l = " << x;
+                //cout << "\ny_l = " << y;
             } else {
                 x_right = x;
                 y_right = y;
-                cout << "\nx_r = " << x;
-                cout << "\ny_r = " << y;
+                //cout << "\nx_r = " << x;
+                //cout << "\ny_r = " << y;
             }
         }
         double h_right_1;
@@ -74,7 +74,7 @@ int main() {
             y_right_m = y;
             i++;
         }
-        cout << "\ni = " << i;
+        //cout << "\ni = " << i;
     }
 
     file.close();
