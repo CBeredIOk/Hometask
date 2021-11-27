@@ -27,7 +27,7 @@ int main() {
     double y;
     while (file >> x >> y) {
         if ((A >= 0 and B > 0) or (A > 0 and B <= 0)) {
-            if (B * x - A * y <= 0) {
+            if (B * x - A * y < 0) {
                 x_left = x;
                 y_left = y;
                 cout << "\nx_l = " << x;
@@ -40,7 +40,7 @@ int main() {
             }
         }
         if ((A <= 0 and B < 0) or (A < 0 and B >= 0)) {
-            if (B * x - A * y >= 0) {
+            if (B * x - A * y > 0) {
                 x_left = x;
                 y_left = y;
                 cout << "\nx_l = " << x;
@@ -67,9 +67,9 @@ int main() {
             x_left_m = x;
             y_left_m = y;
         }
-        if (h_left_1 == 0 and i == 0){
-            x_left_m = x;
-            y_left_m = y;
+        if (h_right_1 == 0 and i == 0){
+            x_right_m = x;
+            y_right_m = y;
             i++;
         }
     }
