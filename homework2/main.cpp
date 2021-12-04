@@ -91,8 +91,14 @@
 #include <string>
 #include <fstream>
 using namespace std;
-//
+
 //double recurs( int n, vector <double> X) {
+//    double x;
+//    x = 0;
+//    for(int i = 1; i <= n; i++){
+//        x = 2*X[i-1] - x;
+//    }
+//    return x;
 //    if (n == 0) {
 //        return 0;
 //    }
@@ -100,6 +106,7 @@ using namespace std;
 //        return 2 * X[n-1] - recurs(n-1, X);
 //    }
 //}
+//
 //double function(int n, double h, double x, double Vx, double Vy, vector<double>& X) {
 //    double g = 9.81;
 //    double f = h + pow(-1, n) * (x - recurs(n, X)) * Vy/Vx - g / (2 * pow(Vx,2)) * pow(x - recurs(n, X), 2);
@@ -155,7 +162,7 @@ using namespace std;
 //    }
 //
 //    if (High == X_b.size()) {
-//        cout << X_b.size();
+//        cout << X_b.size()-1;
 //        return 0;
 //    }
 //
@@ -215,15 +222,15 @@ using namespace std;
 //    //if (Way == " from Left ") {
 //    if (Way == 1) {
 //        if (r == k) {
-//            cout << "<" << 0 << ">";
+//            cout << 0 ;
 //        } else {
-//            cout << "<" << k << ">";
+//            cout << k;
 //        }
 //    }
 //
 //    //if (Way == " from Right ") {
 //    if (Way == 0) {
-//        cout << "<" << k+1 << ">";
+//        cout << k+1;
 //    }
 //    return 0;
 //}
@@ -252,13 +259,20 @@ using namespace std;
 
 
 double recurs( int n, vector <double> X) {
-    if (n == 0) {
-        return 0;
+    double x;
+    x = 0;
+    for(int i = 1; i <= n; i++){
+        x = 2*X[i-1] - x;
     }
-    else {
-        return 2 * X[n-1] - recurs(n-1, X);
-    }
+    return x;
+//    if (n == 0) {
+//        return 0;
+//    }
+//    else {
+//        return 2 * X[n-1] - recurs(n-1, X);
+//    }
 }
+
 double function(int n, double h, double x, double Vx, double Vy, vector<double>& X) {
     double g = 9.81;
     double f = h + pow(-1, n) * (x - recurs(n, X)) * Vy/Vx - g / (2 * pow(Vx,2)) * pow(x - recurs(n, X), 2);
@@ -315,7 +329,7 @@ int main(int argc, char** argv){
         }
 
         if (High == X_b.size()) {
-            cout << X_b.size();
+            cout << X_b.size()-1;
             return 0;
         }
 
