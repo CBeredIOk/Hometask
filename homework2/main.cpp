@@ -74,7 +74,7 @@ int main(int argc, char** argv){
         }
 
         if (Above == X_b.size()) {
-            cout << X_b.size()-1;
+            cout << X_b.size();
             return 0;
         }
 
@@ -201,7 +201,7 @@ int main(int argc, char** argv){
 //    }
 //
 //    if (Above == X_b.size()) {
-//        cout << X_b.size()-1;
+//        cout << X_b.size();
 //        return 0;
 //    }
 //
