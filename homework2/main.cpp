@@ -39,6 +39,10 @@ int main(int argc, char** argv){
             Y_b.push_back(yi);
         }
 
+        if (X_b.size() == 0){
+            cout << 0;
+        }
+
         // k - number of the last barrier the ball hit, n - number of collision
         // r - Checking the flight after a collision flying to the right
         int k = 0, n = 0, r = 0;
@@ -166,6 +170,15 @@ int main(int argc, char** argv){
 //        Y_b.push_back(yi);
 //    }
 //
+//    if (X_b.size() == 0){
+//        cout << 0;
+//    }
+//
+//    cout << "\n" << X_b[0];
+//    cout << "\n" << X_b[1];
+//    cout << "\n" << X_b[2];
+//    cout << "\n" << X_b[3];
+//    cout << "\n" << " ";
 //    // k - number of the last barrier the ball hit, n - number of collision
 //    // r - Checking the flight after a collision flying to the right
 //    int k = 0, n = 0, r = 0;
@@ -194,6 +207,10 @@ int main(int argc, char** argv){
 //            Way = 1;
 //            k = i;
 //            n = 1;
+//            cout << "\n" << "y: " << y;
+//            cout << "\n" << "barrier_X: " << X_b[i];
+//            cout << "\n" << "barrier_Y: " << Y_b[i];
+//            cout << "\n" << k;
 //
 //            Collision_X.push_back(X_b[i]);
 //            break;
@@ -212,6 +229,10 @@ int main(int argc, char** argv){
 //                if (y <= Y_b[i]) {
 //                    Way = 0;
 //                    k = i;
+//                    cout << "\n" << "y: " << y;
+//                    cout << "\n" << "barrier_X: " << X_b[i];
+//                    cout << "\n" << "barrier_Y: " << Y_b[i];
+//                    cout << "\n" << k;
 //                    n++;
 //                    Collision_X.push_back(X_b[i]);
 //                    break;
@@ -231,6 +252,10 @@ int main(int argc, char** argv){
 //                if (y <= Y_b[i]) {
 //                    Way = 1;
 //                    k = i;
+//                    cout << "\n" << "y: " << y;
+//                    cout << "\n" << "barrier_X: " << X_b[i];
+//                    cout << "\n" << "barrier_Y: " << Y_b[i];
+//                    cout << "\n" << k;
 //                    n++;
 //                    Collision_X.push_back(X_b[i]);
 //                    break;
@@ -255,6 +280,94 @@ int main(int argc, char** argv){
 //    return 0;
 //}
 
+
+//#include <iostream>
+//#include <fstream>
+//#include <vector>
+//#include <cmath>
+//#include <string>
+//
+//using namespace std;
+//
+//template <typename T>
+//int sgn(T val) {
+//    return (T(0) < val) - (val < T(0));
+//}
+//
+//const double g = 9.81;
+//
+//
+//
+//int main()
+//{
+//    string input;
+//
+//    ifstream cin("in.txt");
+//
+//    double h0;
+//    cin >> h0;
+//    double vx0, vy0;
+//    cin >> vx0 >> vy0;
+//    double xi, hi;
+//    vector<double> xis;
+//    vector<double> his;
+//
+//    double y = h0, t = 0, x = 0.0, vx = vx0, vy = vy0;
+//    int ans = 0;
+//
+//
+//    xis.push_back(0.0);
+//    his.push_back(-1.);
+//
+//
+//    while (cin >> xi >> hi) {
+//        xis.push_back(xi);
+//        his.push_back(hi);
+//    }
+//
+//    xis.push_back(xis.back()*2+10.0);
+//    his.push_back(-1.);
+//
+//    while (true) {
+//        int dir = sgn(vx);
+//        int next = (dir > 0) ? ans + dir : ans;
+//
+//        if (his[next] < 0 ) {
+//            std::cout << ans;
+//            return 0;
+//        }
+//
+//
+//        if (ans == 0 && dir < 0) {
+//            std::cout << 0;
+//            return 0;
+//        }
+//
+//        double dt = (xis[next] - x) / vx;
+//        y = y + vy * dt - g * dt * dt / 2;
+//
+//        if (y <= 0.0) {
+//            std::cout << ans;
+//            return 0;
+//        }
+//        else if (y > his[next]) {
+//
+//            x = xis[next];
+//
+//            ans += dir;
+//        }
+//        else if (y <= his[next]) {
+//
+//            vx = -vx;
+//            x = xis[next];
+//
+//        }
+//        vy = vy - g * dt;
+//        t += dt;
+//
+//    }
+//    return 0;
+//}
 
 
 
