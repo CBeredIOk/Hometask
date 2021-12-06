@@ -42,92 +42,93 @@ int main(int argc, char** argv){
         if (X_b.size() == 0){
             cout << 0;
         }
+        else{
+            // k - number of the last barrier the ball hit, n - number of collision
+            // r - Checking the flight after a collision flying to the right
+            int k = 0, n = 0, r = 0;
 
-        // k - number of the last barrier the ball hit, n - number of collision
-        // r - Checking the flight after a collision flying to the right
-        int k = 0, n = 0, r = 0;
+            // Way = 0 = " from Right "
+            // Way = 1 = " from Left "
+            int Way = 0;
 
-        // Way = 0 = " from Right "
-        // Way = 1 = " from Left "
-        int Way = 0;
+            vector<double> Collision_X;
 
-        vector<double> Collision_X;
-
-        // if the collision occurred against the first barrier
-        double y = function(n, h, X_b[0], Vx, Vy, X_b);
-        if (y < Y_b[0]) {
-            cout << "\n" << 0;
-            return 0;
-        }
-
-        int Above = 0;
-
-        for (int i = 0; i < X_b.size(); i++) {
-            y = function(n, h, X_b[0], Vx, Vy, X_b);
-            if (y > Y_b[i]) {
-                Above += 1;
+            // if the collision occurred against the first barrier
+            double y = function(n, h, X_b[0], Vx, Vy, X_b);
+            if (y < Y_b[0]) {
+                cout << "\n" << 0;
+                return 0;
             }
-            else {
-                Way = 1;
-                k = i;
-                n = 1;
 
-                Collision_X.push_back(X_b[i]);
-                break;
-            }
-        }
+            int Above = 0;
 
-        if (Above == X_b.size()) {
-            cout << X_b.size();
-            return 0;
-        }
-
-        while (true) {
-            if (Way == 1) {
-                for (int i = k - 1; i >= 0; i--) {
-                    y = function(n, h, X_b[0], Vx, Vy, Collision_X);
-                    if (y <= Y_b[i]) {
-                        Way = 0;
-                        k = i;
-                        n++;
-                        Collision_X.push_back(X_b[i]);
-                        break;
-                    }
-                    r++;
+            for (int i = 0; i < X_b.size(); i++) {
+                y = function(n, h, X_b[0], Vx, Vy, X_b);
+                if (y > Y_b[i]) {
+                    Above += 1;
                 }
-                double yb = y;
-                if (yb < 0) break;
+                else {
+                    Way = 1;
+                    k = i;
+                    n = 1;
 
-                if (r == k) {
+                    Collision_X.push_back(X_b[i]);
                     break;
                 }
             }
-            if (Way == 0) {
-                for (int i = k + 1; i < X_b.size(); i++) {
-                    y = function(n, h, X_b[0], Vx, Vy, Collision_X);
-                    if (y <= Y_b[i]) {
-                        Way = 1;
-                        k = i;
-                        n++;
-                        Collision_X.push_back(X_b[i]);
+
+            if (Above == X_b.size()) {
+                cout << X_b.size();
+                return 0;
+            }
+
+            while (true) {
+                if (Way == 1) {
+                    for (int i = k - 1; i >= 0; i--) {
+                        y = function(n, h, X_b[0], Vx, Vy, Collision_X);
+                        if (y <= Y_b[i]) {
+                            Way = 0;
+                            k = i;
+                            n++;
+                            Collision_X.push_back(X_b[i]);
+                            break;
+                        }
+                        r++;
+                    }
+                    double yb = y;
+                    if (yb < 0) break;
+
+                    if (r == k) {
                         break;
                     }
                 }
-                double yb = y;
-                if (yb < 0) break;
+                if (Way == 0) {
+                    for (int i = k + 1; i < X_b.size(); i++) {
+                        y = function(n, h, X_b[0], Vx, Vy, Collision_X);
+                        if (y <= Y_b[i]) {
+                            Way = 1;
+                            k = i;
+                            n++;
+                            Collision_X.push_back(X_b[i]);
+                            break;
+                        }
+                    }
+                    double yb = y;
+                    if (yb < 0) break;
+                }
             }
-        }
 
-        if (Way == 1) {
-            if (r == k) {
-                cout << "\n" << 0 ;
-            } else {
-                cout << "\n" << k;
+            if (Way == 1) {
+                if (r == k) {
+                    cout << "\n" << 0 ;
+                } else {
+                    cout << "\n" << k;
+                }
             }
-        }
 
-        if (Way == 0) {
-            cout << "\n" << k+1;
+            if (Way == 0) {
+                cout << "\n" << k+1;
+            }
         }
         return 0;
     }
