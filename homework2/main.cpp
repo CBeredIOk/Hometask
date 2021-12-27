@@ -82,11 +82,11 @@ int main(int argc, char** argv){
             return 0;
         }
 
-        if(y > 0){
+        if(y > 0) {
             while (true) {
                 if (Way == 1) {
                     for (int i = k - 1; i >= 0; i--) {
-                        y = function(n, h, X_b[0], Vx, Vy, Collision_X);
+                        y = function(n, h, X_b[i], Vx, Vy, Collision_X);
                         if (y <= Y_b[i]) {
                             Way = 0;
                             k = i;
@@ -106,7 +106,7 @@ int main(int argc, char** argv){
                 }
                 if (Way == 0) {
                     for (int i = k + 1; i < X_b.size(); i++) {
-                        y = function(n, h, X_b[0], Vx, Vy, Collision_X);
+                        y = function(n, h, X_b[i], Vx, Vy, Collision_X);
                         if (y <= Y_b[i]) {
                             Way = 1;
                             k = i;
@@ -131,11 +131,7 @@ int main(int argc, char** argv){
         }
 
         if (Way == 0) {
-            if (r == k) {
-                cout << "\n" << 0;
-            } else {
-                cout << "\n" << k;
-            }
+            cout << "\n" << k+1;
         }
         return 0;
     }
@@ -161,14 +157,14 @@ int main(int argc, char** argv){
 //    return x;
 //}
 //
-////double recurs(int n, vector<double> X) {
-////    if (n == 0) {
-////        return 0;
-////    }
-////    else {
-////        return 2 * X[n-1] - recurs(n - 1, X);
-////    }
-////}
+//double recurs(int n, vector<double> X) {
+//    if (n == 0) {
+//        return 0;
+//    }
+//    else {
+//        return 2 * X[n-1] - recurs(n - 1, X);
+//    }
+//}
 //
 //double function(int n, double h, double x, double Vx, double Vy, vector<double>& X) {
 //    double g = 9.81;
@@ -237,11 +233,11 @@ int main(int argc, char** argv){
 //        return 0;
 //    }
 //
-//    if(y > 0){
+//    if(y > 0) {
 //        while (true) {
 //            if (Way == 1) {
 //                for (int i = k - 1; i >= 0; i--) {
-//                    y = function(n, h, X_b[0], Vx, Vy, Collision_X);
+//                    y = function(n, h, X_b[i], Vx, Vy, Collision_X);
 //                    if (y <= Y_b[i]) {
 //                        Way = 0;
 //                        k = i;
@@ -261,7 +257,7 @@ int main(int argc, char** argv){
 //            }
 //            if (Way == 0) {
 //                for (int i = k + 1; i < X_b.size(); i++) {
-//                    y = function(n, h, X_b[0], Vx, Vy, Collision_X);
+//                    y = function(n, h, X_b[i], Vx, Vy, Collision_X);
 //                    if (y <= Y_b[i]) {
 //                        Way = 1;
 //                        k = i;
@@ -286,11 +282,7 @@ int main(int argc, char** argv){
 //    }
 //
 //    if (Way == 0) {
-//        if (r == k) {
-//            cout << "\n" << 0;
-//        } else {
-//            cout << "\n" << k;
-//        }
+//        cout << "\n" << k+1;
 //    }
 //    return 0;
 //}
