@@ -41,6 +41,7 @@ int main(int argc, char** argv){
 
         if (X_b.size() == 0) {
             cout << 0;
+            return 0;
         }
 
         // k - number of the last barrier the ball hit, n - number of collision
@@ -192,6 +193,7 @@ int main(int argc, char** argv){
 //
 //    if (X_b.size() == 0) {
 //        cout << 0;
+//        return 0;
 //    }
 //
 //    // k - number of the last barrier the ball hit, n - number of collision
