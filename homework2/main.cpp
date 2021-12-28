@@ -41,6 +41,7 @@ int main(int argc, char** argv){
 
         if (X_b.size() == 0){
             cout << 0;
+            return 0;
         }
         else{
             // k - number of the last barrier the ball hit, n - number of collision
@@ -63,7 +64,7 @@ int main(int argc, char** argv){
             int Above = 0;
 
             for (int i = 0; i < X_b.size(); i++) {
-                y = function(n, h, X_b[0], Vx, Vy, X_b);
+                y = function(n, h, X_b[i], Vx, Vy, X_b);
                 if (y > Y_b[i]) {
                     Above += 1;
                 }
@@ -82,39 +83,41 @@ int main(int argc, char** argv){
                 return 0;
             }
 
-            while (true) {
-                if (Way == 1) {
-                    for (int i = k - 1; i >= 0; i--) {
-                        y = function(n, h, X_b[0], Vx, Vy, Collision_X);
-                        if (y <= Y_b[i]) {
-                            Way = 0;
-                            k = i;
-                            n++;
-                            Collision_X.push_back(X_b[i]);
-                            break;
+            if(y > 0) {
+                while (true) {
+                    if (Way == 1) {
+                        for (int i = k - 1; i >= 0; i--) {
+                            y = function(n, h, X_b[i], Vx, Vy, Collision_X);
+                            if (y <= Y_b[i]) {
+                                Way = 0;
+                                k = i;
+                                n++;
+                                Collision_X.push_back(X_b[i]);
+                                break;
+                            }
+                            r++;
                         }
-                        r++;
-                    }
-                    double yb = y;
-                    if (yb < 0) break;
+                        double yb = y;
+                        if (yb < 0) break;
 
-                    if (r == k) {
-                        break;
-                    }
-                }
-                if (Way == 0) {
-                    for (int i = k + 1; i < X_b.size(); i++) {
-                        y = function(n, h, X_b[0], Vx, Vy, Collision_X);
-                        if (y <= Y_b[i]) {
-                            Way = 1;
-                            k = i;
-                            n++;
-                            Collision_X.push_back(X_b[i]);
+                        if (r == k) {
                             break;
                         }
                     }
-                    double yb = y;
-                    if (yb < 0) break;
+                    if (Way == 0) {
+                        for (int i = k + 1; i < X_b.size(); i++) {
+                            y = function(n, h, X_b[i], Vx, Vy, Collision_X);
+                            if (y <= Y_b[i]) {
+                                Way = 1;
+                                k = i;
+                                n++;
+                                Collision_X.push_back(X_b[i]);
+                                break;
+                            }
+                        }
+                        double yb = y;
+                        if (yb < 0) break;
+                    }
                 }
             }
 
